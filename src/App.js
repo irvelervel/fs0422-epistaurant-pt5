@@ -8,6 +8,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import ReservationForm from './components/ReservationForm'
 import ReservationList from './components/ReservationList'
 import NotFound from './components/NotFound'
+import Menu from './components/Menu'
 
 // BrowserRouter is the outer wrapper of our routing system
 // Just wrap EVERYTHING into it, since it allows router features
@@ -36,6 +37,7 @@ function App() {
           <Route element={<Home />} path="/" />
           <Route element={<ReservationForm />} path="/booking" />
           <Route element={<ReservationList />} path="/admin" />
+          <Route element={<Menu />} path="/menu" />
           <Route element={<NotFound />} path="*" />
         </Routes>
       </div>
