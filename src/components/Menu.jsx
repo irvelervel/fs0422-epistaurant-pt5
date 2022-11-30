@@ -1,4 +1,5 @@
 import { Badge, Col, Container, Row } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 import items from '../data/menu.json'
 
 const Menu = () => (
@@ -6,7 +7,9 @@ const Menu = () => (
     {items.map((pasta) => (
       <Row className="justify-content-center mt-4" key={pasta.id}>
         <Col xs={12} md={6} className="text-center">
-          <img src={pasta.image} alt={pasta.name} />
+          <Link to={'/details/' + pasta.id}>
+            <img src={pasta.image} alt={pasta.name} />
+          </Link>
           <div>
             <h4>{pasta.name}</h4>
             <div>
