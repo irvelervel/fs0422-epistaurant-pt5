@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Form, Button } from 'react-bootstrap'
+import { Form, Button, Row, Col, Container } from 'react-bootstrap'
 
 // a reservation object is made like this:
 // {
@@ -140,95 +140,105 @@ const ReservationForm = () => {
   }
 
   return (
-    <div>
-      <h2>Book your table NOW!</h2>
-      <p>Seats are limited ;)</p>
-      <Form onSubmit={onSubmitHandler}>
-        <Form.Group>
-          <Form.Label>Your name</Form.Label>
-          <Form.Control
-            type="text"
-            placeholder="The name of the res. holder"
-            required
-            value={reservation.name}
-            onChange={(e) => onChangeHandler(e.target.value, 'name')}
-            // this is the "conventional" way, more verbose; it still works :)
-            //   onChange={(e) => {
-            //     this.setState({
-            //       reservation: {
-            //         ...this.state.reservation,
-            //         name: e.target.value,
-            //       },
-            //     })
-            //   }}
-          />
-        </Form.Group>
+    <Container>
+      <Row className="justify-content-center mt-3">
+        <Col xs={12} md={6} className="text-center">
+          <div>
+            <h2>Book your table NOW!</h2>
+            <p>Seats are limited ;)</p>
+            <Form onSubmit={onSubmitHandler}>
+              <Form.Group>
+                <Form.Label>Your name</Form.Label>
+                <Form.Control
+                  type="text"
+                  placeholder="The name of the res. holder"
+                  required
+                  value={reservation.name}
+                  onChange={(e) => onChangeHandler(e.target.value, 'name')}
+                  // this is the "conventional" way, more verbose; it still works :)
+                  //   onChange={(e) => {
+                  //     this.setState({
+                  //       reservation: {
+                  //         ...this.state.reservation,
+                  //         name: e.target.value,
+                  //       },
+                  //     })
+                  //   }}
+                />
+              </Form.Group>
 
-        <Form.Group>
-          <Form.Label>Your phone</Form.Label>
-          <Form.Control
-            type="tel"
-            placeholder="The phone of the res. holder"
-            required
-            value={reservation.phone}
-            onChange={(e) => onChangeHandler(e.target.value, 'phone')}
-          />
-        </Form.Group>
+              <Form.Group>
+                <Form.Label>Your phone</Form.Label>
+                <Form.Control
+                  type="tel"
+                  placeholder="The phone of the res. holder"
+                  required
+                  value={reservation.phone}
+                  onChange={(e) => onChangeHandler(e.target.value, 'phone')}
+                />
+              </Form.Group>
 
-        <Form.Group>
-          <Form.Label>How many are you?</Form.Label>
-          <Form.Control
-            as="select"
-            value={reservation.numberOfPeople}
-            onChange={(e) => onChangeHandler(e.target.value, 'numberOfPeople')}
-          >
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-            <option>6</option>
-            <option>7</option>
-            <option>8</option>
-          </Form.Control>
-        </Form.Group>
+              <Form.Group>
+                <Form.Label>How many are you?</Form.Label>
+                <Form.Control
+                  as="select"
+                  value={reservation.numberOfPeople}
+                  onChange={(e) =>
+                    onChangeHandler(e.target.value, 'numberOfPeople')
+                  }
+                >
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                  <option>6</option>
+                  <option>7</option>
+                  <option>8</option>
+                </Form.Control>
+              </Form.Group>
 
-        <Form.Group>
-          <Form.Check
-            type="checkbox"
-            label="Do you smoke?"
-            checked={reservation.smoking}
-            // checked is useful just for checkboxes; it will store true/false
-            // instead, the value property stores "on" / "off"
-            onChange={(e) => onChangeHandler(e.target.checked, 'smoking')}
-          />
-        </Form.Group>
+              <Form.Group>
+                <Form.Check
+                  type="checkbox"
+                  label="Do you smoke?"
+                  checked={reservation.smoking}
+                  // checked is useful just for checkboxes; it will store true/false
+                  // instead, the value property stores "on" / "off"
+                  onChange={(e) => onChangeHandler(e.target.checked, 'smoking')}
+                />
+              </Form.Group>
 
-        <Form.Group>
-          <Form.Label>Date and time of your res.</Form.Label>
-          <Form.Control
-            type="datetime-local"
-            required
-            value={reservation.dateTime}
-            onChange={(e) => onChangeHandler(e.target.value, 'dateTime')}
-          />
-        </Form.Group>
+              <Form.Group>
+                <Form.Label>Date and time of your res.</Form.Label>
+                <Form.Control
+                  type="datetime-local"
+                  required
+                  value={reservation.dateTime}
+                  onChange={(e) => onChangeHandler(e.target.value, 'dateTime')}
+                />
+              </Form.Group>
 
-        <Form.Group>
-          <Form.Label>Any special request?</Form.Label>
-          <Form.Control
-            as="textarea"
-            rows={5}
-            value={reservation.specialRequests}
-            onChange={(e) => onChangeHandler(e.target.value, 'specialRequests')}
-          />
-        </Form.Group>
+              <Form.Group>
+                <Form.Label>Any special request?</Form.Label>
+                <Form.Control
+                  as="textarea"
+                  rows={5}
+                  value={reservation.specialRequests}
+                  onChange={(e) =>
+                    onChangeHandler(e.target.value, 'specialRequests')
+                  }
+                />
+              </Form.Group>
 
-        <Button variant="primary" type="submit">
-          Send reservation
-        </Button>
-      </Form>
-    </div>
+              <Button variant="primary" type="submit">
+                Send reservation
+              </Button>
+            </Form>
+          </div>
+        </Col>
+      </Row>
+    </Container>
   )
 }
 

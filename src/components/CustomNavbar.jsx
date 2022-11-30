@@ -1,18 +1,29 @@
 import { Navbar, Nav } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 // let's create a React Component for just the Navbar!
 // I'm going to choose the simplest way for creating this component,
 // since it does not need any special ability!
 // --> a function returning JSX
 
+// Link when transformed into HTML creates a special <a>CLICK ME</a> tag
+
 const CustomNavbar = ({ subtitle }) => (
   <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-    <Navbar.Brand href="#home">Epistaurant - {subtitle}</Navbar.Brand>
+    <Link to="/">
+      <Navbar.Brand>Epistaurant - {subtitle}</Navbar.Brand>
+    </Link>
     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
     <Navbar.Collapse id="responsive-navbar-nav">
       <Nav className="ml-auto">
-        <Nav.Link href="#menu">Menu</Nav.Link>
-        <Nav.Link href="#reservation">Reservation</Nav.Link>
-        <Nav.Link href="#findus">Find us</Nav.Link>
+        <Link to="/menu" className="navbar-links">
+          <div className="nav-link">Menu</div>
+        </Link>
+        <Link to="/booking" className="navbar-links">
+          <div className="nav-link">Book a table</div>
+        </Link>
+        <Link to="/admin" className="navbar-links">
+          <div className="nav-link">Admin</div>
+        </Link>
       </Nav>
     </Navbar.Collapse>
   </Navbar>

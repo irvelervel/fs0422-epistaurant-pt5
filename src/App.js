@@ -5,6 +5,9 @@ import Home from './components/Home'
 // you're going to use curly brackets in an import statement if
 // the thing you're importing has not been exported as default
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import ReservationForm from './components/ReservationForm'
+import ReservationList from './components/ReservationList'
+import NotFound from './components/NotFound'
 
 // BrowserRouter is the outer wrapper of our routing system
 // Just wrap EVERYTHING into it, since it allows router features
@@ -17,6 +20,10 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 // to be hidden on some routes, like the navbar, like a footer, should
 // not be wrapped inside Routes
 
+// with Routes you should really just delimit the parts of the interface
+// you want to show on specific paths, everything OUTSIDE of it will
+// ALWAYS be shown!
+
 function App() {
   return (
     <BrowserRouter>
@@ -26,7 +33,10 @@ function App() {
         <CustomNavbar subtitle="Best pastas on the Internet!" />
         {/* I'm likely to invoke Home here later */}
         <Routes>
-          <Home />
+          <Route element={<Home />} path="/" />
+          <Route element={<ReservationForm />} path="/booking" />
+          <Route element={<ReservationList />} path="/admin" />
+          <Route element={<NotFound />} path="*" />
         </Routes>
       </div>
     </BrowserRouter>

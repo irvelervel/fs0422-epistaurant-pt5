@@ -40,3 +40,7 @@
 .spinner-border.custom-spinner-color {
   color: lightcoral;
 }
+
+a.navbar-links:hover {
+  text-decoration: none;
+}

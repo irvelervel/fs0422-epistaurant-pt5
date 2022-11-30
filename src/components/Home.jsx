@@ -3,8 +3,6 @@ import { useState } from 'react'
 import { Container, Row, Col, Carousel } from 'react-bootstrap'
 import menu from '../data/menu.json'
 import DishComments from './DishComments'
-import ReservationForm from './ReservationForm'
-import ReservationList from './ReservationList'
 
 // every component written as a CLASS can hold an internal STATE.
 // a state is an object, and you want to use it for REMEMBERING THINGS!
@@ -27,16 +25,6 @@ const Home = () => {
 
   return (
     <Container>
-      <Row className="justify-content-center mt-3">
-        <Col xs={12} md={6} className="text-center">
-          <ReservationList />
-        </Col>
-      </Row>
-      <Row className="justify-content-center mt-3">
-        <Col xs={12} md={6} className="text-center">
-          <ReservationForm />
-        </Col>
-      </Row>
       <Row className="justify-content-center mt-3">
         {/* this is the same thing as writing <div className="col col-xs-12 col-md-6"> */}
         <Col xs={12} md={6} className="text-center">
